@@ -1,0 +1,16 @@
+.todoLine {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  width: 80rem;
+  margin-block: 2rem;
+}
+
+.textBloc {
+  width: 70rem;
+  border-bottom: 1px solid black;
+}
+
+.textBloc p {
+  padding: 0.5rem;
+}
