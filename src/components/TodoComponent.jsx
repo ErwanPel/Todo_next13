@@ -3,18 +3,26 @@ import DeleteButton from "./DeleteButton";
 import TextInput from "./TextInput";
 import styles from "./TodoComponent.module.css";
 
-export default function TodoComponent() {
+export default function TodoComponent({ data }) {
   return (
-    <div className={styles.todoLine}>
-      <div className={styles.checkBloc}>
-        <Checkbox />
-      </div>
-      <div className={styles.textBloc}>
-        <p>todo</p>
-      </div>
-      <div className={styles.deleteBloc}>
-        <DeleteButton />
-      </div>
-    </div>
+    <>
+      {data.map((task, index) => {
+        let taskProp = JSON.stringify(task);
+
+        return (
+          <div key={index} className={styles.todoLine}>
+            <div className={styles.checkBloc}>
+              <Checkbox task={taskProp} />
+            </div>
+            <div className={styles.textBloc}>
+              <p>{task.titre}</p>
+            </div>
+            <div className={styles.deleteBloc}>
+              <DeleteButton task={taskProp} />
+            </div>
+          </div>
+        );
+      })}
+    </>
   );
 }

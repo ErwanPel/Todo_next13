@@ -3,7 +3,6 @@ import Todo from "./models/Todo";
 import styles from "./page.module.css";
 import TodoComponent from "@/components/TodoComponent";
 import TextInput from "@/components/TextInput";
-import SaveTask from "@/components/SaveTask";
 
 const getData = async () => {
   try {
@@ -17,17 +16,15 @@ const getData = async () => {
   }
 };
 
-export default function TodosPage() {
-  const data = getData();
+export default async function TodosPage() {
+  const data = await getData();
+
   return (
     <main className={styles.wrapper}>
-      <div className={styles.searchBar}>
-        <TextInput />
-        <SaveTask />
-      </div>
+      <TextInput />
 
       <div className={styles.todosBloc}>
-        <TodoComponent />
+        <TodoComponent data={data} />
       </div>
     </main>
   );
